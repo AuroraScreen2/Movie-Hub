@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Later • Aurora Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="module" src="js/watch-later.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><a href="index.html">Aurora Hub</a></div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search movies, TV shows..." />
+    </div>
+    <nav class="nav-links">
+      <a href="explore.html">Explore</a>
+      <a href="watch-later.html" class="active">Watch Later</a>
+      <span class="user-icon">🙂</span>
+    </nav>
+  </header>
+  <main class="content" style="padding-top: calc(var(--header-height) + 1rem)">
+    <h1>Watch Later</h1>
+    <p id="subtext"></p>
+    <div id="filterBar" class="filters" style="margin-bottom: 1rem;">
+      <button class="filter-btn active" data-type="all">All</button>
+      <button class="filter-btn" data-type="movie">Movies</button>
+      <button class="filter-btn" data-type="tv">TV</button>
+    </div>
+    <section id="itemsList" class="results-area"></section>
+  </main>
+
+  <!-- Overlay reuse -->
+  <div id="overlayPlayer" class="overlay-player">
+    <div class="overlay-content">
+      <button class="overlay-close" id="overlay-close">×</button>
+      <div class="overlay-info">
+        <h3 id="overlay-title"></h3>
+        <p id="overlay-subinfo"></p>
+      </div>
+      <iframe id="overlay-iframe" src="" allowfullscreen></iframe>
+      <div id="overlay-extra"></div>
+    </div>
+  </div>
+</body>
+</html>
