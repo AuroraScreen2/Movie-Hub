@@ -1199,3 +1199,201 @@ p {
         width: 120px;
     }
 }
+
+
+
+
+/* ======== 13. PAGE: TV DETAILS (NEW) ======== */
+/* Styles for season selector and episode grid */
+
+.season-episode-section {
+    /* Use the same padding as the media rows */
+    padding: var(--spacing-lg) var(--spacing-xxl);
+}
+
+.season-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.season-controls .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.season-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.season-pill {
+    background: var(--color-surface-1);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-lg); /* Pill shape */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+.season-pill:hover {
+    background: var(--color-surface-2);
+    color: var(--color-text-primary);
+}
+.season-pill.active {
+    background: var(--color-primary);
+    color: var(--color-text-primary);
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* --- Episode Grid --- */
+.episode-grid {
+    display: grid;
+    /* Create columns that are at least 350px, and fill the space */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.loading-episodes {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+}
+
+.episode-card {
+    background: var(--color-surface-1);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    transition: var(--transition-medium);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+}
+.episode-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px var(--color-shadow);
+    border-color: var(--color-text-secondary);
+}
+
+.episode-thumbnail-container {
+    flex-shrink: 0;
+    width: 180px;
+    aspect-ratio: 16/9;
+    position: relative;
+    background: #000;
+}
+.episode-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-fast);
+}
+.episode-card:hover .episode-thumbnail {
+    filter: brightness(0.7);
+}
+
+.episode-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--glass-background);
+    border: 2px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-medium);
+    z-index: 2;
+}
+.episode-card:hover .episode-play-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.episode-play-btn .material-icons-outlined {
+    font-size: 28px;
+    margin-left: 2px; /* Center the play icon */
+}
+
+.episode-info {
+    padding: var(--spacing-md);
+    flex-grow: 1;
+    overflow: hidden; /* Important for text ellipsis */
+}
+.episode-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.episode-overview {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    /* Clamp to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.episode-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-tertiary);
+    padding: var(--spacing-md);
+    border-left: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* --- Responsive for TV Page --- */
+@media (max-width: 768px) {
+    .season-episode-section {
+        padding: var(--spacing-md);
+    }
+    
+    .season-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .episode-grid {
+         grid-template-columns: 1fr; /* Stack all cards */
+         gap: var(--spacing-md);
+    }
+    
+    .episode-thumbnail-container {
+        width: 140px; /* Smaller thumbnail on mobile */
+    }
+    
+    .episode-info {
+        padding: var(--spacing-sm);
+    }
+    .episode-title {
+        font-size: 0.9rem;
+    }
+    
+    .episode-meta {
+        padding: var(--spacing-sm);
+        font-size: 0.8rem;
+    }
+}
