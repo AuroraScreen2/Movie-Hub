@@ -957,3 +957,245 @@ p {
         right: var(--spacing-sm);
     }
 }
+
+
+
+/* ======== 12. PAGE: MOVIE & TV DETAILS (NEW) ======== */
+/* These styles apply to both movie.html and tv.html */
+
+.movie-page-container,
+.tv-page-container {
+    width: 100%;
+}
+
+.movie-header-area {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    background-size: cover;
+    background-position: center 20%;
+    padding: var(--spacing-xxl);
+    padding-top: 150px; /* Space for header */
+    display: flex;
+    align-items: center;
+}
+
+.movie-header-area .header-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-background) 20%, rgba(11,11,15,0.7) 60%, rgba(11,11,15,0) 100%),
+                linear-gradient(0deg, var(--color-background) 0%, rgba(11,11,15,0.2) 100%);
+}
+
+.movie-header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: var(--spacing-xl);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.movie-poster-container {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+#movie-poster,
+#tv-poster {
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 30px var(--color-shadow);
+}
+
+.movie-info-container {
+    max-width: 700px;
+}
+
+#movie-title,
+#tv-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.movie-meta-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.movie-meta-info .badge-rating {
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--glass-background);
+}
+
+.meta-item {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.movie-tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.movie-overview {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.movie-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* --- Meta Strip --- */
+.movie-meta-strip {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color-surface-1);
+    padding: var(--spacing-lg) var(--spacing-xxl);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.meta-strip-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text-tertiary);
+}
+.meta-strip-item strong {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Cast Scroller --- */
+/* We can re-use .media-row for padding */
+#cast, #recommendedMovies, #recommendedTV {
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+}
+
+.cast-scroller {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: var(--spacing-md); /* For shadow visibility */
+    
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.cast-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.cast-card {
+    flex-shrink: 0;
+    width: 140px;
+    text-align: center;
+}
+
+.cast-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+    background-color: var(--color-surface-1);
+}
+
+.cast-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.actor-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.character-name {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Responsive for Movie/TV Page --- */
+@media (max-width: 768px) {
+    .movie-header-area {
+        padding: var(--spacing-md);
+        padding-top: 120px; /* Space for mobile header */
+        min-height: auto;
+    }
+    
+    .movie-header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .movie-poster-container {
+        width: 60%;
+        max-width: 250px;
+    }
+    
+    .movie-info-container {
+        max-width: 100%;
+    }
+    
+    #movie-title,
+    #tv-title {
+        font-size: 2rem;
+    }
+    
+    .movie-meta-info {
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .movie-buttons {
+        justify-content: center;
+    }
+    
+    .movie-meta-strip {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    #cast, #recommendedMovies, #recommendedTV {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    .cast-card {
+        width: 120px;
+    }
+}
