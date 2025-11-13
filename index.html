@@ -1,64 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aurora Movie Hub</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script type="module" src="js/index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamVerse - Watch Movies & TV Shows</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <script src="main.js" defer></script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo"><a href="index.html">Aurora Hub</a></div>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search movies, TV shows..." />
-    </div>
-    <nav class="nav-links">
-      <a href="explore.html">Explore</a>
-      <a href="watch-later.html">Watch Later</a>
-      <span class="user-icon">🙂</span>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="heroSection" class="hero-section">
-    <!-- Slides will be injected here by JS -->
-    <div class="hero-navigation">
-      <button id="hero-prev" aria-label="Previous slide">‹</button>
-      <button id="hero-next" aria-label="Next slide">›</button>
-    </div>
-    <div class="hero-dots" id="hero-dots"><!-- dots --></div>
-  </section>
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">StreamVerse</a>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for movies and TV shows...">
+                <button class="search-btn" aria-label="Search">
+                    <span class="material-icons-outlined">search</span>
+                </button>
+                <div class="search-results-dropdown"></div>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="explore.html" class="nav-link">
+                    <span class="material-icons-outlined">explore</span>
+                    <span class="nav-text">Explore</span>
+                </a>
+                <a href="watch-later.html" class="nav-link">
+                    <span class="material-icons-outlined">bookmark_border</span>
+                    <span class="nav-text">Watch Later</span>
+                </a>
+                <a href="#" class="nav-link user-icon" aria-label="User Profile">
+                    <span class="material-icons-outlined">account_circle</span>
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Rows -->
-  <main class="content">
-    <section id="rowTrendingMovies" class="row-section">
-      <h2>Trending Movies</h2>
-      <div class="row-container"></div>
-    </section>
-    <section id="rowTrendingTV" class="row-section">
-      <h2>Trending TV Shows</h2>
-      <div class="row-container"></div>
-    </section>
-    <section id="rowTopRated" class="row-section">
-      <h2>Top Rated</h2>
-      <div class="row-container"></div>
-    </section>
-  </main>
+    <main>
+        
+        <section id="hero-section">
+            <div class="hero-carousel" id="hero-carousel">
+                </div>
+            <div class="carousel-nav">
+                <button class="carousel-arrow" id="hero-prev" aria-label="Previous Slide">&lt;</button>
+                <button class="carousel-arrow" id="hero-next" aria-label="Next Slide">&gt;</button>
+                <div class="carousel-dots" id="hero-dots"></div>
+            </div>
+        </section>
 
-  <!-- Overlay Player -->
-  <div id="overlayPlayer" class="overlay-player">
-    <div class="overlay-content">
-      <button class="overlay-close" id="overlay-close">×</button>
-      <div class="overlay-info">
-        <h3 id="overlay-title"></h3>
-        <p id="overlay-subinfo"></p>
-      </div>
-      <iframe id="overlay-iframe" src="" allowfullscreen></iframe>
-      <div id="overlay-extra"></div>
+        <div class="media-rows-container">
+            
+            <section class="media-row" id="rowTrendingMovies">
+                <h2 class="row-title">Trending Movies</h2>
+                <div class="media-scroller" id="trending-movies-scroller">
+                    </div>
+            </section>
+
+            <section class="media-row" id="rowTrendingTV">
+                <h2 class="row-title">Trending TV Shows</h2>
+                <div class="media-scroller" id="trending-tv-scroller">
+                    </div>
+            </section>
+
+            <section class="media-row" id="rowTopRated">
+                <h2 class="row-title">Top Rated</h2>
+                <div class="media-scroller" id="top-rated-scroller">
+                    </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <div id="overlayPlayer" class="overlay-player-container">
+        <div class="overlay-backdrop"></div>
+        <div class="overlay-content">
+            <button class="overlay-close-btn" aria-label="Close player">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            
+            <div class="overlay-header">
+                <h2 class="overlay-title" id="overlay-title">S1 · E1: Pilot</h2>
+            </div>
+            
+            <div class="iframe-container">
+                <iframe id="playerIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            
+            <div class="overlay-info-row">
+                <span class="info-item" id="overlay-info-details">Info (e.g., Air Date, Runtime)</span>
+            </div>
+
+            <div class="overlay-episode-scroller" id="tv-episode-list">
+                <h3 class="episode-list-title">Episodes (Season 1)</h3>
+                <div class="episode-list" id="overlay-episode-list-container">
+                    </div>
+            </div>
+
+            <div class="overlay-server-list" id="movie-server-list">
+                 <h3 class="server-list-title">Quality / Servers</h3>
+                 <div id="overlay-server-buttons-container">
+                    </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 StreamVerse. This site is a demo.</p>
+        <p>All data provided by <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>.</p>
+    </footer>
 
 </body>
 </html>
