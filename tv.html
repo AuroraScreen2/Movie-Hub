@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TV Show Details • Aurora Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="module" src="js/tv.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><a href="index.html">Aurora Hub</a></div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search movies, TV shows..." />
+    </div>
+    <nav class="nav-links">
+      <a href="explore.html">Explore</a>
+      <a href="watch-later.html">Watch Later</a>
+      <span class="user-icon">🙂</span>
+    </nav>
+  </header>
+
+  <main class="content" style="padding-top: calc(var(--header-height) + 1rem)">
+    <section id="tvHeader" class="tv-header">
+      <!-- JS will fill this -->
+    </section>
+    <section id="seasonSelector" class="season-selector"></section>
+    <section id="episodeGrid" class="episode-grid"></section>
+    <section id="recommendedTV" class="row-section">
+      <h2>Similar Shows</h2>
+      <div class="row-container"></div>
+    </section>
+  </main>
+
+  <!-- Overlay Player reuse -->
+  <div id="overlayPlayer" class="overlay-player">
+    <div class="overlay-content">
+      <button class="overlay-close" id="overlay-close">×</button>
+      <div class="overlay-info">
+        <h3 id="overlay-title"></h3>
+        <p id="overlay-subinfo"></p>
+      </div>
+      <iframe id="overlay-iframe" src="" allowfullscreen></iframe>
+      <div id="overlay-extra"></div>
+    </div>
+  </div>
+</body>
+</html>
