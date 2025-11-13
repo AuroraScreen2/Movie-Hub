@@ -1,48 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TV Show Details • Aurora Hub</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script type="module" src="js/tv.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamVerse - TV Show Details</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <script src="js/main.js" defer></script>
+    <script src="js/tv.js" defer></script>
 </head>
-<body>
-  <header class="header">
-    <div class="logo"><a href="index.html">Aurora Hub</a></div>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search movies, TV shows..." />
-    </div>
-    <nav class="nav-links">
-      <a href="explore.html">Explore</a>
-      <a href="watch-later.html">Watch Later</a>
-      <span class="user-icon">🙂</span>
-    </nav>
-  </header>
+<body id="page-tv"> <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">StreamVerse</a>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for movies and TV shows...">
+                <button class="search-btn" aria-label="Search">
+                    <span class="material-icons-outlined">search</span>
+                </button>
+                <div class="search-results-dropdown"></div>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="explore.html" class="nav-link">
+                    <span class="material-icons-outlined">explore</span>
+                    <span class="nav-text">Explore</span>
+                </a>
+                <a href="watch-later.html" class="nav-link">
+                    <span class="material-icons-outlined">bookmark_border</span>
+                    <span class="nav-text">Watch Later</span>
+                </a>
+                <a href="#" class="nav-link user-icon" aria-label="User Profile">
+                    <span class="material-icons-outlined">account_circle</span>
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <main class="content" style="padding-top: calc(var(--header-height) + 1rem)">
-    <section id="tvHeader" class="tv-header">
-      <!-- JS will fill this -->
-    </section>
-    <section id="seasonSelector" class="season-selector"></section>
-    <section id="episodeGrid" class="episode-grid"></section>
-    <section id="recommendedTV" class="row-section">
-      <h2>Similar Shows</h2>
-      <div class="row-container"></div>
-    </section>
-  </main>
+    <main>
+        
+        <div id="tv-details-container" class="tv-page-container">
 
-  <!-- Overlay Player reuse -->
-  <div id="overlayPlayer" class="overlay-player">
-    <div class="overlay-content">
-      <button class="overlay-close" id="overlay-close">×</button>
-      <div class="overlay-info">
-        <h3 id="overlay-title"></h3>
-        <p id="overlay-subinfo"></p>
-      </div>
-      <iframe id="overlay-iframe" src="" allowfullscreen></iframe>
-      <div id="overlay-extra"></div>
+            </div> <section classs="season-episode-section">
+            <div class="season-controls">
+                <h2 class="section-title">Seasons</h2>
+                <div class="season-selector" id="season-selector">
+                    </div>
+            </div>
+
+            <div class="episode-grid" id="episode-grid">
+                </div>
+        </section>
+
+
+        <section class="media-row" id="recommendedTV">
+            <h2 class="row-title">You Might Also Like</h2>
+            <div class="media-scroller" id="recommended-scroller">
+                </div>
+        </section>
+
+    </main>
+
+    <div id="overlayPlayer" class="overlay-player-container">
+        <div class="overlay-backdrop"></div>
+        <div class="overlay-content">
+            <button class="overlay-close-btn" aria-label="Close player">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div class="overlay-header">
+                <h2 class="overlay-title" id="overlay-title">S1 · E1: Pilot</h2>
+            </div>
+            <div class="iframe-container">
+                <iframe id="playerIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="overlay-info-row">
+                <span class="info-item" id="overlay-info-details">Info (e.g., Air Date, Runtime)</span>
+            </div>
+            <div class="overlay-episode-scroller" id="tv-episode-list">
+                <h3 class="episode-list-title">Episodes (Season 1)</h3>
+                <div class="episode-list" id="overlay-episode-list-container"></div>
+            </div>
+            <div class="overlay-server-list" id="movie-server-list">
+                 <h3 class="server-list-title">Quality / Servers</h3>
+                 <div id="overlay-server-buttons-container"></div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 StreamVerse. This site is a demo.</p>
+        <p>All data provided by <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB</a>.</p>
+    </footer>
+
 </body>
 </html>
