@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Movie Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="module" src="js/index.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><a href="index.html">Aurora Hub</a></div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search movies, TV shows..." />
+    </div>
+    <nav class="nav-links">
+      <a href="explore.html">Explore</a>
+      <a href="watch-later.html">Watch Later</a>
+      <span class="user-icon">🙂</span>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="heroSection" class="hero-section">
+    <!-- Slides will be injected here by JS -->
+    <div class="hero-navigation">
+      <button id="hero-prev" aria-label="Previous slide">‹</button>
+      <button id="hero-next" aria-label="Next slide">›</button>
+    </div>
+    <div class="hero-dots" id="hero-dots"><!-- dots --></div>
+  </section>
+
+  <!-- Rows -->
+  <main class="content">
+    <section id="rowTrendingMovies" class="row-section">
+      <h2>Trending Movies</h2>
+      <div class="row-container"></div>
+    </section>
+    <section id="rowTrendingTV" class="row-section">
+      <h2>Trending TV Shows</h2>
+      <div class="row-container"></div>
+    </section>
+    <section id="rowTopRated" class="row-section">
+      <h2>Top Rated</h2>
+      <div class="row-container"></div>
+    </section>
+  </main>
+
+  <!-- Overlay Player -->
+  <div id="overlayPlayer" class="overlay-player">
+    <div class="overlay-content">
+      <button class="overlay-close" id="overlay-close">×</button>
+      <div class="overlay-info">
+        <h3 id="overlay-title"></h3>
+        <p id="overlay-subinfo"></p>
+      </div>
+      <iframe id="overlay-iframe" src="" allowfullscreen></iframe>
+      <div id="overlay-extra"></div>
+    </div>
+  </div>
+
+</body>
+</html>
